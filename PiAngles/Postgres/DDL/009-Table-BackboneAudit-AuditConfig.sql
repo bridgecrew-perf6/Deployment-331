@@ -2,8 +2,8 @@ USE BackboneAudit;
 DROP TABLE IF EXISTS Config;
 CREATE TABLE Config
 (
-	Id INT(32) UNSIGNED NOT NULL AUTO_INCREMENT,
-	InsertedTS TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	Id INT(32) SERIAL NOT NULL PRIMARY KEY,
+	InsertedTS TIMESTAMP NOT NULL DEFAULT NOW(),
 
 	HostName varchar(255)  NOT NULL,
 	LoginId varchar(25)  NOT NULL,
@@ -14,10 +14,5 @@ CREATE TABLE Config
 	ComponentId varchar(50)  NOT NULL,
 	ClassName varchar(150) NOT NULL,
 	LineNumber varchar(10) NOT NULL,
-	StackTrace varchar(32000)  NOT NULL,
-	
-	INDEX(InsertedTS),
-	INDEX (ComponentId),
-    KEY(Id)
+	StackTrace varchar(32000)  NOT NULL
 );
-ALTER TABLE Config ADD CONSTRAINT PK_Id PRIMARY KEY(Id);
