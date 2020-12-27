@@ -1,0 +1,1 @@
+--For testing purposes. Postgres does not start up without a file in Data folder because of our Dockerfile configuration.

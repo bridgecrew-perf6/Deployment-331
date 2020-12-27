@@ -1,8 +1,7 @@
-USE Backbone;
-DROP TABLE IF EXISTS AddendumPreferences;
-CREATE TABLE AddendumPreferences
+DROP TABLE IF EXISTS Backbone.AddendumPreferences;
+CREATE TABLE Backbone.AddendumPreferences
 (
-	Id INT(32) SERIAL NOT NULL PRIMARY KEY,
+	Id SERIAL NOT NULL PRIMARY KEY,
 	InsertedTS TIMESTAMP NOT NULL DEFAULT NOW(),
 	UpdatedTS TIMESTAMP NOT NULL,
 

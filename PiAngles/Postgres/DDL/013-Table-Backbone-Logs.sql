@@ -1,8 +1,7 @@
-USE Backbone;
-DROP TABLE IF EXISTS Logs;
-CREATE TABLE Logs
+DROP TABLE IF EXISTS Backbone.Logs;
+CREATE TABLE Backbone.Logs
 (
-	Id INT(32) SERIAL NOT NULL PRIMARY KEY,
+	Id SERIAL NOT NULL PRIMARY KEY,
 	InsertedTS TIMESTAMP NOT NULL DEFAULT NOW(),
 	LoggingTS TIMESTAMP NOT NULL,
 
@@ -14,7 +13,7 @@ CREATE TABLE Logs
 	ProcessId varchar(15)  NOT NULL,
 	
 	ThreadId varchar(50)  NOT NULL,
-	CategoryLevel INT(8) NOT NULL,
+	CategoryLevel INT NOT NULL,
 	Category varchar(10) NOT NULL,
 	ClassName varchar(150) NOT NULL,
 	LineNumber varchar(10) NOT NULL,

@@ -1,10 +1,10 @@
 #!/bin/bash
 
-docker stop tp_postgres
+docker stop demo_piangles
 
-docker image build -t tp_postgres .
+docker image build -t demo_piangles .
 
-docker container run -p 5432:5432 -d --rm -it --name tp_postgres tp_postgres 
+docker container run -p 5432:5432 --rm -it --name demo_piangles demo_piangles 
 
 sleep 5
 

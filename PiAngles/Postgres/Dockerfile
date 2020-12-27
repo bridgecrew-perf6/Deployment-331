@@ -10,7 +10,7 @@ ADD ./DML/*.sql /DML/
 ADD ./Data/*.sql /Data/
 
 
-RUN [ "/bin/bash", "-c", "cat /DDL/{0001..9999}-*.sql >> /init.sql 2> /dev/null; exit 0"]
+RUN [ "/bin/bash", "-c", "cat /DDL/{001..999}-*.sql >> /init.sql 2> /dev/null; exit 0"]
 
 RUN cat /DML/*.sql >> /init.sql
 

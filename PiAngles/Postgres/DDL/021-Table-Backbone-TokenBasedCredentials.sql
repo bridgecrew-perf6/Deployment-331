@@ -1,8 +1,7 @@
-USE Backbone;
-DROP TABLE IF EXISTS TokenBasedCredentials;
-CREATE TABLE TokenBasedCredentials
+DROP TABLE IF EXISTS Backbone.TokenBasedCredentials;
+CREATE TABLE Backbone.TokenBasedCredentials
 (
-	Id INT(32) SERIAL NOT NULL PRIMARY KEY,
+	Id SERIAL NOT NULL,
 	InsertedTS TIMESTAMP NOT NULL DEFAULT NOW(),
 	UpdatedTS TIMESTAMP NOT NULL,
 	
