@@ -1,6 +1,6 @@
---DROP PROCEDURE IF EXISTS Backbone.IsCredentialValid;
+--DROP FUNCTION IF EXISTS Backbone.IsCredentialValid;
 --
---CREATE PROCEDURE Backbone.IsCredentialValid
+--CREATE FUNCTION Backbone.IsCredentialValid
 --(
 --	IN LoginId VARCHAR(250),
 --	IN PasswordOrToken VARCHAR(100),

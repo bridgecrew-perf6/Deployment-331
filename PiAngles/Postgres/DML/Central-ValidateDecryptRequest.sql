@@ -1,6 +1,7 @@
---DROP PROCEDURE IF EXISTS Central.ValidateDecryptRequest;
+--DIFFERENT ISSUE
+--DROP FUNCTION IF EXISTS Central.ValidateDecryptRequest;
 --
---CREATE PROCEDURE Central.ValidateDecryptRequest 
+--CREATE FUNCTION Central.ValidateDecryptRequest 
 --(
 --	IN HostName VARCHAR(255),
 --	IN ServiceName VARCHAR(255),
