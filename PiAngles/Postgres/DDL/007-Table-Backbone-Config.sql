@@ -1,0 +1,18 @@
+USE Backbone;
+DROP TABLE IF EXISTS Config;
+CREATE TABLE Config
+(
+	Id INT(32) UNSIGNED NOT NULL AUTO_INCREMENT,
+	InsertedTS timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	UpdatedTS TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+
+	ApplicationId varchar(50) NOT NULL,
+	ComponentId varchar(100) NOT NULL,
+	ComponentDescription varchar(250) NOT NULL,
+	Name varchar(100) NOT NULL,
+	Value varchar(100) NOT NULL,
+
+	INDEX (ComponentId),
+	KEY (Id)
+);
+ALTER TABLE Config ADD CONSTRAINT PK_Id PRIMARY KEY(Id);
