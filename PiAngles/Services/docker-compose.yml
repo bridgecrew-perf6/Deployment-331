@@ -1,12 +1,22 @@
 version: "3.8"
 services:
 
+  central:
+    image: pianglesorg/central:latest
+    build:
+      context: ./central
+    env_file: ./services.env
+    container_name: central
+
   session:
     image: pianglesorg/session:latest
     build:
       context: ./session
     env_file: ./services.env
     container_name: session
+    depends_on: 
+      - session
+    command: ["wait", "30"]
     
   crypto:
     image: pianglesorg/crypto:latest
