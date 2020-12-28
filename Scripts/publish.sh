@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd ../Datastore
+cd ../../Datastore
 
 git fetch --all;git reset --hard origin/master; git status
 
