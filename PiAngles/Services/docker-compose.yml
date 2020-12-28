@@ -5,7 +5,7 @@ services:
     image: pianglesorg/central:latest
     build:
       context: ./central
-    env_file: ./services.env
+    env_file: ./central.env
     container_name: central
 
   session:
