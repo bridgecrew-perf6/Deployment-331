@@ -1,0 +1,81 @@
+version: "3.8"
+services:
+
+  central:
+    image: pianglesorg/central:latest
+    env_file: ./central.env
+    container_name: central
+
+  session:
+    image: pianglesorg/session:latest
+    env_file: ./services.env
+    container_name: session
+    depends_on: 
+      - central
+    command: ["wait", "30"]
+    
+  crypto:
+    image: pianglesorg/crypto:latest
+    env_file: ./services.env
+    container_name: crypto
+    depends_on: 
+      - session
+    command: ["wait", "10"]  
+  
+  config:
+    image: pianglesorg/config:latest
+    env_file: ./services.env
+    container_name: config
+    depends_on: 
+      - session
+    command: ["wait", "10"]  
+
+  logging:
+    image: pianglesorg/logging:latest
+    env_file: ./services.env
+    container_name: logging
+    depends_on: 
+      - crypto
+      - config
+    command: ["wait", "20"]  
+
+  id:
+    image: pianglesorg/id:latest
+    env_file: ./services.env
+    container_name: id
+    depends_on: 
+      - logging
+    command: ["wait", "30"]  
+  
+  profile:
+    image: pianglesorg/profile:latest
+    env_file: ./services.env
+    container_name: profile
+    depends_on: 
+      - id
+    command: ["wait", "30"]  
+ 
+  authentication:
+    image: pianglesorg/authentication:latest
+    env_file: ./services.env
+    container_name: authentication
+    depends_on: 
+      - logging
+    command: ["wait", "30"]  
+ 
+  preferences:
+    image: pianglesorg/preferences:latest
+    env_file: ./services.env
+    container_name: preferences
+    depends_on: 
+      - logging
+    command: ["wait", "30"]  
+ 
+  msg:
+    image: pianglesorg/msg:latest
+    env_file: ./services.env
+    container_name: msg
+    depends_on: 
+      - logging
+    command: ["wait", "30"]  
+  
