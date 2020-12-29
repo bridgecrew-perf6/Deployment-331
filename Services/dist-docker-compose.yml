@@ -3,6 +3,8 @@ services:
 
   central:
     image: pianglesorg/central:latest
+    ports:
+            - "8080:8080"      
     env_file: ./central.env
     container_name: central
 
@@ -12,7 +14,7 @@ services:
     container_name: session
     depends_on: 
       - central
-    command: ["wait", "30"]
+    command: ["wait", "20"]
     
   crypto:
     image: pianglesorg/crypto:latest
@@ -20,7 +22,7 @@ services:
     container_name: crypto
     depends_on: 
       - session
-    command: ["wait", "10"]  
+    command: ["wait", "30"]  
   
   config:
     image: pianglesorg/config:latest
@@ -28,7 +30,7 @@ services:
     container_name: config
     depends_on: 
       - session
-    command: ["wait", "10"]  
+    command: ["wait", "30"]  
 
   logging:
     image: pianglesorg/logging:latest
@@ -37,7 +39,7 @@ services:
     depends_on: 
       - crypto
       - config
-    command: ["wait", "20"]  
+    command: ["wait", "50"]  
 
   id:
     image: pianglesorg/id:latest
@@ -45,7 +47,7 @@ services:
     container_name: id
     depends_on: 
       - logging
-    command: ["wait", "30"]  
+    command: ["wait", "50"]  
   
   profile:
     image: pianglesorg/profile:latest
@@ -53,7 +55,7 @@ services:
     container_name: profile
     depends_on: 
       - id
-    command: ["wait", "30"]  
+    command: ["wait", "50"]  
  
   authentication:
     image: pianglesorg/authentication:latest
@@ -61,7 +63,7 @@ services:
     container_name: authentication
     depends_on: 
       - logging
-    command: ["wait", "30"]  
+    command: ["wait", "50"]  
  
   preferences:
     image: pianglesorg/preferences:latest
@@ -69,7 +71,7 @@ services:
     container_name: preferences
     depends_on: 
       - logging
-    command: ["wait", "30"]  
+    command: ["wait", "50"]  
  
   msg:
     image: pianglesorg/msg:latest
@@ -77,5 +79,5 @@ services:
     container_name: msg
     depends_on: 
       - logging
-    command: ["wait", "30"]  
+    command: ["wait", "50"]  
   
